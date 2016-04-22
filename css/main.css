@@ -1,0 +1,451 @@
+body {
+  font-size: 14px; }
+  body header .logo {
+    font-size: 2.5em; }
+  body nav li {
+    font-size: 1.5em; }
+  body section h1 {
+    font-size: 3.429em; }
+  body section h2 {
+    font-size: 0.714em; }
+  body section .intro h3 {
+    font-size: 1.75em; }
+  body section .content h4 {
+    font-size: 1.25em; }
+  body section .view_work .view_work_close {
+    font-size: 1.5em; }
+
+.work_bottom .view_list {
+  font-size: 0.714em; }
+.work_bottom .tools_list h4 {
+  font-size: 0.714em; }
+.work_bottom .tools_list ul li {
+  font-size: 0.714em; }
+
+.view_work[data-view-work='animation'] {
+  background-image: url(http://placehold.it/1200x800);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+@font-face {
+  font-family: "Tryst";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/tryst.otf") format("opentype"); }
+body, html {
+  margin: 0;
+  padding: 0; }
+
+html {
+  min-width: 300px; }
+
+body {
+  position: relative;
+  padding: 0px 40px;
+  background-color: #FFF;
+  font-size: 14px;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease; }
+  body header {
+    padding: 20px 0px; }
+    body header .logo {
+      font-family: "Tryst", serif;
+      font-size: 2.5em;
+      line-height: 0.85em;
+      letter-spacing: 0.05em;
+      -webkit-transition: font-size 0.3s ease;
+      -moz-transition: font-size 0.3s ease;
+      -o-transition: font-size 0.3s ease;
+      transition: font-size 0.3s ease; }
+      body header .logo a {
+        text-decoration: none;
+        color: #666666; }
+    body header .mobile .lines-button {
+      display: inline-block;
+      padding: 1.375em 0.6875em;
+      transition: .3s;
+      cursor: pointer; }
+    body header .mobile .lines {
+      display: inline-block;
+      width: 2.75em;
+      height: 0.39286em;
+      background: #666666;
+      border-radius: 0.19643em;
+      transition: 0.3s;
+      position: relative;
+      /*create the upper and lower lines as pseudo-elements of the middle line*/ }
+      body header .mobile .lines:before, body header .mobile .lines:after {
+        display: inline-block;
+        width: 2.75em;
+        height: 0.39286em;
+        background: #666666;
+        border-radius: 0.19643em;
+        transition: 0.3s;
+        position: absolute;
+        left: 0;
+        content: '';
+        transform-origin: 0.19643em center; }
+      body header .mobile .lines:before {
+        top: 0.6875em; }
+      body header .mobile .lines:after {
+        top: -0.6875em; }
+    body header .mobile .lines-button.x.close .lines {
+      /*hide the middle line*/
+      background: transparent;
+      /*overlay the lines by setting both their top values to 0*/ }
+      body header .mobile .lines-button.x.close .lines:before, body header .mobile .lines-button.x.close .lines:after {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: 2.75em; }
+      body header .mobile .lines-button.x.close .lines:before {
+        transform: rotate3d(0, 0, 1, 45deg); }
+      body header .mobile .lines-button.x.close .lines:after {
+        transform: rotate3d(0, 0, 1, -45deg); }
+  body main {
+    padding: 10px;
+    background-color: #898989;
+    height: calc(100vh - 118px);
+    overflow: hidden;
+    position: relative; }
+  body nav {
+    text-align: right; }
+    body nav ul {
+      padding: 0px;
+      margin: 0px; }
+    body nav li {
+      padding: 0px;
+      margin: 0px 20px;
+      font-family: "Tryst", serif;
+      font-size: 1.5em;
+      font-weight: 400;
+      display: inline-block;
+      list-style-type: none;
+      -webkit-transition: font-size 0.3s ease;
+      -moz-transition: font-size 0.3s ease;
+      -o-transition: font-size 0.3s ease;
+      transition: font-size 0.3s ease; }
+      body nav li a {
+        color: #FFF; }
+  body section {
+    padding-left: 40px;
+    padding-top: 50px;
+    width: 50%;
+    color: #FFF;
+    display: none; }
+    body section.active {
+      display: block; }
+    body section h1 {
+      font-family: "Tryst", serif;
+      font-size: 3.429em;
+      font-weight: 400;
+      margin: 0.2em 0;
+      -webkit-transition: font-size 0.3s ease;
+      -moz-transition: font-size 0.3s ease;
+      -o-transition: font-size 0.3s ease;
+      transition: font-size 0.3s ease; }
+    body section h2 {
+      font-family: "Lato", sans-serif;
+      font-size: 0.714em;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin: 1em 0;
+      font-weight: 300;
+      -webkit-transition: font-size 0.3s ease;
+      -moz-transition: font-size 0.3s ease;
+      -o-transition: font-size 0.3s ease;
+      transition: font-size 0.3s ease; }
+    body section p {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      line-height: 1.75em;
+      margin: 0px 0px 20px; }
+    body section .view_work {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      position: absolute;
+      top: 200px;
+      left: 0;
+      background: #333;
+      opacity: 0;
+      z-index: -1;
+      visibility: hidden;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease; }
+      body section .view_work.active {
+        visibility: visible;
+        opacity: 1;
+        top: 0px;
+        z-index: 1;
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease; }
+      body section .view_work .intro {
+        margin: 40% auto 50px;
+        width: calc(100% - 40px);
+        max-width: 600px;
+        padding: 20px;
+        background-color: #333;
+        -webkit-transition: margin 0.3s ease;
+        -moz-transition: margin 0.3s ease;
+        -o-transition: margin 0.3s ease;
+        transition: margin 0.3s ease; }
+        body section .view_work .intro h3 {
+          font-family: "Tryst", serif;
+          font-size: 1.75em;
+          font-weight: 400;
+          margin: 0 0 15px;
+          -webkit-transition: font-size 0.3s ease;
+          -moz-transition: font-size 0.3s ease;
+          -o-transition: font-size 0.3s ease;
+          transition: font-size 0.3s ease; }
+        body section .view_work .intro p {
+          font-family: "Lato", sans-serif;
+          font-weight: 300;
+          line-height: 1.75em;
+          margin: 0px 0px 20px; }
+      body section .view_work .content {
+        background-color: #333;
+        padding: 40px; }
+        body section .view_work .content h4 {
+          font-family: "Tryst", serif;
+          font-weight: 400;
+          margin: 0 0 15px;
+          font-size: 1.25em;
+          -webkit-transition: font-size 0.3s ease;
+          -moz-transition: font-size 0.3s ease;
+          -o-transition: font-size 0.3s ease;
+          transition: font-size 0.3s ease; }
+      body section .view_work .view_work_close {
+        position: fixed;
+        width: calc(100% - 80px);
+        font-family: "Tryst", serif;
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 10px 0px 20px;
+        text-align: center;
+        -webkit-transition: font-size 0.3s ease;
+        -moz-transition: font-size 0.3s ease;
+        -o-transition: font-size 0.3s ease;
+        transition: font-size 0.3s ease; }
+        body section .view_work .view_work_close a {
+          color: #FFF; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+  ul li {
+    list-style-type: none; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.clrfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.button {
+  width: 5.75em;
+  height: 5.75em;
+  border: 2px solid #FFF;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease; }
+  .button:hover {
+    background: rgba(255, 255, 255, 0.5); }
+  .button a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+
+.sliding_bottom a {
+  display: inline-block;
+  position: relative;
+  cursor: pointer; }
+  .sliding_bottom a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s; }
+  .sliding_bottom a:hover:after {
+    height: 1px;
+    bottom: 0px;
+    opacity: 1;
+    background: #FFF; }
+  .sliding_bottom a.active:after {
+    height: 1px;
+    bottom: 0px;
+    opacity: 1;
+    background: #FFF; }
+
+.work_bottom {
+  position: absolute;
+  bottom: 5.5em;
+  text-transform: uppercase;
+  width: calc(100% - 100px); }
+  .work_bottom .view_list {
+    font-family: "Lato", sans-serif;
+    font-size: 0.714em;
+    letter-spacing: 0.3em;
+    padding-bottom: 5px;
+    font-weight: 300;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease; }
+    .work_bottom .view_list a {
+      display: inline-block; }
+  .work_bottom .tools_list:before {
+    content: "Tools";
+    font-family: "Lato", sans-serif;
+    font-size: 0.714em;
+    letter-spacing: 0.3em;
+    margin: 0px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #FFF;
+    font-weight: 300;
+    transform-origin: left center;
+    -ms-transform: rotate(-90deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-90deg);
+    /* Safari */
+    -moz-transform: rotate(-90deg);
+    /* Firefox */
+    transform: rotate(-90deg);
+    /* Standard syntax */
+    position: absolute;
+    width: 60px;
+    top: 55px;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease; }
+  .work_bottom .tools_list ul {
+    margin-left: 25px; }
+    .work_bottom .tools_list ul li {
+      font-family: "Lato", sans-serif;
+      font-size: 0.714em;
+      letter-spacing: 0.3em;
+      padding-bottom: 5px;
+      font-weight: 300;
+      -webkit-transition: font-size 0.3s ease;
+      -moz-transition: font-size 0.3s ease;
+      -o-transition: font-size 0.3s ease;
+      transition: font-size 0.3s ease; }
+
+.work_list {
+  padding-top: 20px; }
+  .work_list ul {
+    margin: 0px;
+    padding: 0px; }
+    .work_list ul li {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      list-style-type: none;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 20px; }
+      .work_list ul li a {
+        color: #FFF; }
+
+@media screen and (max-width: 760px), (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    font-size: 12px; }
+    body header .logo {
+      font-size: 2.5em; }
+    body nav li {
+      font-size: 1.5em; }
+    body section h1 {
+      font-size: 3.429em; }
+    body section h2 {
+      font-size: 0.714em; }
+    body section .intro h3 {
+      font-size: 1.75em; }
+    body section .content h4 {
+      font-size: 1.25em; }
+    body section .view_work .view_work_close {
+      font-size: 1.5em; }
+
+  .work_bottom .view_list {
+    font-size: 0.714em; }
+  .work_bottom .tools_list h4 {
+    font-size: 0.714em; }
+  .work_bottom .tools_list ul li {
+    font-size: 0.714em; }
+
+  body section {
+    width: auto;
+    padding: 50px 10px 10px; }
+    body section .view_work .intro {
+      max-width: initial;
+      margin: 40% 0px 0px; }
+    body section .view_work .content {
+      padding: 20px; }
+  body main {
+    height: calc(100vh - 110px); }
+
+  .work_bottom {
+    width: calc(100% - 40px); } }
+@media screen and (min-width: 521px), (min-device-width: 761px) and (-webkit-min-device-pixel-ratio: 2) {
+  .mobile {
+    display: none; } }
+@media screen and (max-width: 520px), (max-device-width: 760px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    font-size: 11px; }
+    body header .logo {
+      font-size: 2.5em; }
+    body nav li {
+      font-size: 1.5em; }
+    body section h1 {
+      font-size: 3.429em; }
+    body section h2 {
+      font-size: 0.714em; }
+    body section .intro h3 {
+      font-size: 1.75em; }
+    body section .content h4 {
+      font-size: 1.25em; }
+    body section .view_work .view_work_close {
+      font-size: 1.5em; }
+
+  .work_bottom .view_list {
+    font-size: 0.714em; }
+  .work_bottom .tools_list h4 {
+    font-size: 0.714em; }
+  .work_bottom .tools_list ul li {
+    font-size: 0.714em; }
+
+  .mobile {
+    display: block; }
+
+  body main {
+    height: calc(100vh - 106px); } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,85 @@
+// ------------------------------------------------
+// Layout
+// ------------------------------------------------
+body{
+
+	font-size: $base_font_size;
+
+	header{
+
+        .logo{
+			font-size: $logo_font_size;
+		}
+
+	}
+
+
+	nav{
+
+		li{
+			font-size: $nav_font_size;
+
+		}
+
+	}
+
+	section{
+
+		h1{
+			font-size: $heading_font_size;
+		}
+
+		h2{
+			font-size: $intro_font_size;
+		}
+
+		.intro{
+			h3{
+				font-size: $view_work_header_size;
+			}
+		}
+
+		.content{
+			h4{
+				font-size: $view_work_content_header_size;
+			}
+		}
+
+		.view_work{
+
+			.view_work_close{
+				font-size: $nav_font_size;
+			}
+
+		}
+
+	}
+
+}
+// ------------------------------------------------
+// Classes
+// ------------------------------------------------
+.work_bottom{
+
+	.view_list{
+
+		font-size: $intro_font_size;
+
+	}
+
+	.tools_list{
+
+		h4{
+			font-size: $intro_font_size;
+		}
+
+		ul{
+
+			li{
+				font-size: $intro_font_size;
+			}
+
+		}
+
+	}
+}

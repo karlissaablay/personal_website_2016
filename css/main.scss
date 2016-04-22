@@ -1,0 +1,593 @@
+// ------------------------------------------------
+// SASS for karlissaablay.com
+//
+// Created By: Karlissa Ablay
+// ------------------------------------------------
+// This SASS file is organized as follows:
+//
+// • IMPORTS
+// • FONTS
+// • GENERAL LAYOUT
+// • TAGS
+// • CLASSES
+// • MEDIA QUERIES
+//		• MAX - SITE WIDTH    
+//		• MAX - 960PX
+//		• MAX - 760PX
+//		• MIN - 521PX
+//		• MAX - 520PX
+// ------------------------------------------------
+// Imports
+// ------------------------------------------------
+@import "partials/base";	// VARIABLES AND MIXINS
+@import "partials/responsive_elements";	// RESPONSIVE FONTS
+@import "partials/bg_images";	// BACKGROUNDS
+
+// ------------------------------------------------
+// Fonts
+// ------------------------------------------------
+@include font-face(Tryst, fonts/tryst, 400, normal, otf);
+
+// ------------------------------------------------
+// Layout
+// ------------------------------------------------
+body, html{
+	margin: 0;
+	padding: 0;
+}
+
+html{min-width:300px;}
+
+body{
+
+	position: relative;
+
+	padding: 0px 40px;
+	background-color: #FFF;
+	font-size: $base_font_size;
+
+	@include transition(font-size 0.3s ease);
+
+	header{
+		padding: 20px 0px;
+
+        .logo{
+
+        	font-family: "Tryst", serif;
+			font-size: $logo_font_size;
+		    line-height: 0.85em;
+	        letter-spacing: 0.05em;
+
+			@include transition(font-size 0.3s ease);
+
+
+	        a{
+	        	text-decoration: none;
+			    color: $logo_color;
+			}
+		}
+
+		.mobile{
+
+			.lines-button {
+				display: inline-block;
+				padding: $button-size/2 $button-size/4;
+				transition: .3s;
+				cursor: pointer;
+			}
+
+
+			.lines {
+				//create middle line
+				@include line;
+				position: relative; 
+
+				/*create the upper and lower lines as pseudo-elements of the middle line*/
+				&:before, &:after {
+
+					@include line;
+					position: absolute;
+					left:0;
+					content: '';
+					transform-origin: $button-size/14 center;
+				}
+
+				&:before { top: $button-size/4; }
+				&:after { top: -$button-size/4; }
+			}
+
+			.lines-button.x.close .lines{
+ 
+				/*hide the middle line*/
+				background: transparent;
+
+				/*overlay the lines by setting both their top values to 0*/
+				&:before, &:after{
+					transform-origin: 50% 50%;
+					top:0;
+					width: $button-size;
+				}
+
+				// rotate the lines to form the x shape
+				&:before{
+					transform: rotate3d(0,0,1,45deg); 
+				}
+				&:after{
+					transform: rotate3d(0,0,1,-45deg); 
+				}
+			}
+		}
+	}
+
+	main{
+		padding: 10px;
+		background-color: #898989;
+
+		height: calc(100vh - 118px);	// add 20 px for padding
+		overflow: hidden;
+
+		position: relative;
+	}
+
+	nav{
+
+		text-align: right;
+
+		ul{ padding: 0px; margin: 0px}
+
+		li{
+			padding: 0px;
+			margin: 0px 20px;
+
+			font-family: "Tryst", serif;
+			font-size: $nav_font_size;
+			font-weight: 400;
+
+
+			display: inline-block;
+			list-style-type: none;
+
+			@include transition(font-size 0.3s ease);
+
+			a{
+				color: $nav_link_color;
+			}
+
+		}
+
+	}
+
+	section{
+
+		padding-left: 40px;
+		padding-top: 50px;
+
+		width: 50%;
+
+		color: $content_color;
+
+		display: none;
+
+		&.active{
+			display: block;
+		}
+
+		h1{
+			font-family: "Tryst", serif;
+			font-size: $heading_font_size;
+			font-weight: 400;
+
+			margin: 0.2em 0;
+
+			@include transition(font-size 0.3s ease);
+		}
+
+		h2{
+			font-family: "Lato", sans-serif;
+			font-size: $intro_font_size;
+			text-transform: uppercase;
+			letter-spacing: 0.3em;
+			margin: 1em 0;
+
+			font-weight: 300;
+
+			@include transition(font-size 0.3s ease);
+
+		}
+
+		p{
+			font-family: "Lato", sans-serif;
+			font-weight: 300;
+
+			line-height: 1.75em;
+
+			margin: 0px 0px 20px;
+		}
+
+		.view_work{
+			width: 100%;
+			height: 100%;
+			overflow-y: scroll;
+
+			position: absolute;
+			top: 200px;
+			left: 0;
+			background: #333;
+			opacity: 0;
+			z-index: -1;
+
+			visibility: hidden;
+
+			@include transition(all 1.0s ease);
+
+			&.active{
+				visibility: visible;
+
+				opacity: 1;
+				top: 0px;
+				z-index: 1;
+
+				@include transition(all 1.0s ease);
+			}
+
+			.intro{
+				margin: 40% auto 50px;
+				width: calc(100% - 40px);
+				max-width: 600px;
+			    padding: 20px;
+
+				background-color: $view_work_box_color;
+
+				@include transition(margin 0.3s ease);
+
+
+				h3{
+					font-family: "Tryst", serif;
+					font-size: $view_work_header_size;
+					font-weight: 400;
+
+					margin: 0 0 15px;
+
+					@include transition(font-size 0.3s ease);
+
+				}
+
+				p{
+					font-family: "Lato", sans-serif;
+					font-weight: 300;
+
+					line-height: 1.75em;
+
+					margin: 0px 0px 20px;
+				}
+			}
+
+			.content{
+				background-color: $view_work_box_color;
+				padding: 40px;
+
+				h4{
+					font-family: "Tryst", serif;
+					font-weight: 400;
+
+					margin: 0 0 15px;
+					font-size: $view_work_content_header_size;
+
+					@include transition(font-size 0.3s ease);
+
+				}
+
+
+			}
+
+			.view_work_close{
+
+			    position: fixed;
+			    width: calc(100% - 80px);
+
+				font-family: "Tryst", serif;
+				font-size: $nav_font_size;
+				font-weight: 400;
+
+				margin: 10px 0px 20px;
+				text-align: center;
+
+				@include transition(font-size 0.3s ease);
+
+				a{
+					color: $nav_link_color;
+				}
+			}
+		}
+
+	}
+
+}
+// ------------------------------------------------
+// Tags
+// ------------------------------------------------
+a{
+	text-decoration: none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+
+	li{list-style-type: none;}
+}
+// ------------------------------------------------
+// Classes
+// ------------------------------------------------
+.left{float:left;}
+.right{float:right;}
+.clrfix:after{content:"";display:table;clear:both;}
+
+.button{
+
+	width: 5.75em;
+	height: 5.75em;
+
+	border: 2px solid #FFF;
+	background: rgba(255,255,255,0.2);
+	cursor: pointer;
+
+	position: relative;
+
+	@include border-radius(100%);
+	@include transition(background 0.3s ease);
+
+	&:hover{
+	background: rgba(255,255,255,0.5);
+
+	}
+
+	a{
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%,-50%);
+	}
+
+}
+
+
+.sliding_bottom a{
+
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+
+	&:after{
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		@include transition(all ease 0.5s);
+	}
+
+	&:hover:after{
+		height: 1px;
+		bottom: 0px;
+		opacity: 1;
+		background: $nav_link_color;
+	}
+
+	&.active:after{
+		height: 1px;
+		bottom: 0px;
+		opacity: 1;
+		background: $nav_link_color;
+	}
+}
+
+.work_bottom{
+
+	position: absolute;
+    bottom: 5.5em;
+	text-transform: uppercase;
+
+	width: calc(100% - 100px);
+
+	.view_list{
+
+		font-family: "Lato", sans-serif;
+		font-size: $intro_font_size;
+		letter-spacing: 0.3em;
+	    padding-bottom: 5px;
+		font-weight: 300;
+
+		@include transition(font-size 0.3s ease);
+
+		a{
+			display: inline-block;
+		}
+
+	}
+
+
+	.tools_list{
+
+		&:before{
+			content: "Tools";
+			font-family: "Lato", sans-serif;
+			font-size: $intro_font_size;
+			letter-spacing: 0.3em;
+			margin: 0px;
+
+		    padding-bottom: 3px;
+			border-bottom: 1px solid $content_color;
+
+			font-weight: 300;
+
+			transform-origin: left center;
+			@include transform(rotate(-90deg));
+
+			position: absolute;
+			width: 60px;
+		    top: 55px;
+
+			@include transition(font-size 0.3s ease);
+
+		}
+
+		ul{
+
+			margin-left: 25px;
+
+			li{
+
+				font-family: "Lato", sans-serif;
+				font-size: $intro_font_size;
+				letter-spacing: 0.3em;
+			    padding-bottom: 5px;
+				font-weight: 300;
+
+				@include transition(font-size 0.3s ease);
+
+			}
+
+		}
+
+	}
+}
+
+.work_list{
+
+	padding-top: 20px;
+
+	ul{
+
+		margin: 0px;
+		padding: 0px;
+
+		li{
+			font-family: "Lato", sans-serif;
+			font-weight: 300;
+
+			list-style-type: none;
+			text-transform: uppercase;
+
+			letter-spacing: 0.3em;
+
+			margin-bottom: 20px;
+
+			a{
+				color: $content_color;
+			}
+		}
+
+	}
+
+}
+
+// -------------------------
+// MAX - 960 PX FOR DESKTOP
+// MAX - 
+// -------------------------
+@media screen and (max-width: 960px){
+	// main{
+	// 	overflow: scroll;
+	// }
+}
+
+// -------------------------
+// MIN - 521 PX
+// MIN - 761 PX FOR DEVICE
+//
+// For elements that must
+// have specific styling
+// for non-mobile device widths
+// -------------------------
+@media screen and (min-width: 761px), (min-device-width: 1025px) and (-webkit-min-device-pixel-ratio: 2){
+
+}
+
+// -------------------------
+// MAX - 760 PX FOR DESKTOP
+// MAX - 1024 PX FOR DEVICE
+// -------------------------
+@media screen and (max-width: 760px), (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2){
+
+	$base_font_size: 12px;
+
+	@import "partials/responsive_elements";
+
+	body{
+
+		section{
+			width: auto;
+			padding: 50px 10px 10px;
+
+			.view_work{
+
+				.intro{
+					max-width: initial;
+					margin: 40% 0px 0px;
+				}
+
+				.content{
+					padding: 20px;
+				}
+
+			}
+		}
+
+		main{
+			height: calc(100vh - 110px);	// add 20 px for padding
+		}
+
+	}
+
+	.work_bottom{
+		width: calc(100% - 40px);
+	}
+
+}
+
+// -------------------------
+// MIN - 521 PX
+// MIM - 761 PX FOR DEVICE
+//
+// For elements that must
+// have specific styling
+// for non-mobile device widths
+// -------------------------
+@media screen and (min-width: 521px), (min-device-width: 761px) and (-webkit-min-device-pixel-ratio: 2){
+
+	.mobile{
+		display: none;
+	}
+
+}
+// -------------------------
+// MAX - 520 PX FOR DESKTOP
+// MAX - 760 PX FOR DEVICE
+// -------------------------
+@media screen and (max-width: 520px), (max-device-width: 760px) and (-webkit-min-device-pixel-ratio: 2){
+
+	$base_font_size: 11px;
+
+	@import "partials/responsive_elements";
+
+
+	.mobile{
+		display: block;
+	}
+
+	body{
+
+		main{
+			height: calc(100vh - 106px);	// add 20 px for padding
+		}
+
+	}
+
+}
+
+
+
+
+

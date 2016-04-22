@@ -1,0 +1,91 @@
+// ------------------------------------------------
+// Variables
+// ------------------------------------------------
+
+$base_font_size: 14px;
+$logo_font_size: 2.5em;
+$nav_font_size: 1.5em;
+$intro_font_size: 0.714em;
+$heading_font_size: 3.429em;
+
+$logo_color: #666666;
+$nav_link_color: #FFF;
+$content_color: #FFF;
+
+$view_work_box_color: #333;
+$view_work_header_size: 1.75em;
+$view_work_content_header_size: 1.25em;
+
+$button-size : 2.75em; 
+$transition: .3s; // increase this to see the transformations in slow-motion
+
+// ------------------------------------------------
+// Helper Functions
+// ------------------------------------------------
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+// ------------------------------------------------
+// Mixins
+// ------------------------------------------------
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg otf) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin line {
+  display: inline-block;
+  width: $button-size;
+  height: $button-size/7;
+  background: $logo_color;
+  border-radius: $button-size/14; 
+  transition: $transition;
+}
+
+@mixin transform($transform_property){
+	-ms-transform: $transform_property; /* IE 9 */
+    -webkit-transform: $transform_property; /* Safari */
+    -moz-transform: $transform_property; /* Firefox */
+    transform: $transform_property; /* Standard syntax */
+}
+
+@mixin transition($transition_property...){
+	-webkit-transition: $transition_property;
+	-moz-transition: $transition_property;
+	-o-transition: $transition_property;
+	transition: $transition_property;
+}
