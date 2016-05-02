@@ -22,11 +22,12 @@
 @import "partials/base";	// VARIABLES AND MIXINS
 @import "partials/responsive_elements";	// RESPONSIVE FONTS
 @import "partials/bg_images";	// BACKGROUNDS
+@import "fonts/stylesheet.css"; // FONTS
 
 // ------------------------------------------------
 // Fonts
 // ------------------------------------------------
-@include font-face(Tryst, fonts/tryst, 400, normal, otf);
+// @include font-face(Tryst, fonts/tryst, 400, normal, otf);
 
 // ------------------------------------------------
 // Layout

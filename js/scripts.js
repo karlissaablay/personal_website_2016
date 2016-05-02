@@ -52,6 +52,7 @@ $(document).ready(function(){
 	});
 
 	$(".view_work_close a").click(function(){
+		console.log(":)");
 		$(".view_work.active").removeClass("active");
 	});
 	
