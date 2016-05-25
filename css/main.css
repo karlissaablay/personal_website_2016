@@ -45,6 +45,21 @@ body {
   -moz-transition: font-size 0.3s ease;
   -o-transition: font-size 0.3s ease;
   transition: font-size 0.3s ease; }
+  body.loaded .loading-screen {
+    opacity: 0;
+    visibility: hidden; }
+  body .loading-screen {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    z-index: 1;
+    opacity: 1;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
   body header {
     padding: 20px 0px; }
     body header .logo {

@@ -1,3 +1,10 @@
+$(window). load(function(){
+	setTimeout(function(){
+		$('body').addClass('loaded');
+	}, 500);
+});
+
+
 $(document).ready(function(){
 
 	$(window).fadeThis({speed: 1000});
@@ -43,7 +50,7 @@ $(document).ready(function(){
 	// Show view work box on click
 	// -----------------------------
 	$(".view_list .button").click(function(){
-		
+
 		var view_work_box = $(this).data("work");
 		console.log(view_work_box);
 
@@ -55,6 +62,5 @@ $(document).ready(function(){
 		console.log(":)");
 		$(".view_work.active").removeClass("active");
 	});
-	
-});
 
+});

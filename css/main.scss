@@ -11,7 +11,7 @@
 // • TAGS
 // • CLASSES
 // • MEDIA QUERIES
-//		• MAX - SITE WIDTH    
+//		• MAX - SITE WIDTH
 //		• MAX - 960PX
 //		• MAX - 760PX
 //		• MIN - 521PX
@@ -49,6 +49,28 @@ body{
 
 	@include transition(font-size 0.3s ease);
 
+	&.loaded .loading-screen{
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.loading-screen{
+
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: #FFF;
+		z-index: 1;
+		opacity: 1;
+
+		@include transition( all 0.25s ease-out);
+
+		.loading-content{
+
+		}
+	}
+
 	header{
 		padding: 20px 0px;
 
@@ -81,7 +103,7 @@ body{
 			.lines {
 				//create middle line
 				@include line;
-				position: relative; 
+				position: relative;
 
 				/*create the upper and lower lines as pseudo-elements of the middle line*/
 				&:before, &:after {
@@ -98,7 +120,7 @@ body{
 			}
 
 			.lines-button.x.close .lines{
- 
+
 				/*hide the middle line*/
 				background: transparent;
 
@@ -111,10 +133,10 @@ body{
 
 				// rotate the lines to form the x shape
 				&:before{
-					transform: rotate3d(0,0,1,45deg); 
+					transform: rotate3d(0,0,1,45deg);
 				}
 				&:after{
-					transform: rotate3d(0,0,1,-45deg); 
+					transform: rotate3d(0,0,1,-45deg);
 				}
 			}
 		}
@@ -387,7 +409,7 @@ ul{
 .work_bottom{
 
 	position: absolute;
-    bottom: 5.5em;
+  bottom: 5.5em;
 	text-transform: uppercase;
 
 	width: calc(100% - 100px);
@@ -486,7 +508,7 @@ ul{
 
 // -------------------------
 // MAX - 960 PX FOR DESKTOP
-// MAX - 
+// MAX -
 // -------------------------
 @media screen and (max-width: 960px){
 	// main{
@@ -587,8 +609,3 @@ ul{
 	}
 
 }
-
-
-
-
-

@@ -26,13 +26,14 @@ class Project extends React.Component{
 // -------------------------------- //
 var View_Project = React.createClass({
 	getInitialState: function(){
-		return { 
+		return {
 			isActive: true,
 			childActive: false
-		}
+		};
 	},
 	_toggleChildActive: function(){
 		this.setState( { childActive: !this.state.childActive } );
+		console.log( this.state.childActive );
 	},
 	render: function() {
 		return (
@@ -51,7 +52,7 @@ var View_Project = React.createClass({
 						</div>
 					</div>
 
-					<div class="tools_list left">
+					<div className="tools_list left">
 						<ul>
 							<li>Software Name</li>
 							<li>Hardware Name</li>
@@ -59,7 +60,7 @@ var View_Project = React.createClass({
 					</div>
 				</div>
 
-				<View_Work _toggleActive={this._toggleChildActive} isActive={this.state.childActive} section={animation} />
+				<View_Work _toggleActive={this._toggleChildActive.bind(this)} isActive={this.state.childActive} section={animation} />
 			</section>
 
 		);
